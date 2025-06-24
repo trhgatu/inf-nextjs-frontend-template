@@ -1,14 +1,14 @@
 // src/app/layout.tsx
-import "./globals.css";
-import { Inter } from "next/font/google";
-import { Toaster } from "@/components/ui/sonner";
-import { Navbar } from "@/components/shared/Navbar";
-import { Metadata } from "next";
-import { siteConfig } from "@/config/site";
-import { ReduxProvider } from "@/store/provider";
-import { AuthGate } from "@/features/auth/components/AuthGate";
+import './globals.css';
+import { Inter } from 'next/font/google';
+import { Toaster } from '@/components/ui/sonner';
+import { Navbar } from '@/components/shared/Navbar';
+import { Metadata } from 'next';
+import { siteConfig } from '@/config/site';
+import { ReduxProvider } from '@/store/provider';
+import { AuthGate } from '@/features/auth/components/AuthGate';
 
-const inter = Inter({ subsets: ["vietnamese"], variable: "--font-sans" });
+const inter = Inter({ subsets: ['vietnamese'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
   title: {
@@ -19,10 +19,16 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="vi" suppressHydrationWarning>
-      <body className={`min-h-screen font-sans ${inter.variable} bg-white text-gray-900`}>
+      <body
+        className={`min-h-screen font-sans ${inter.variable} bg-white text-gray-900`}
+      >
         <ReduxProvider>
           <AuthGate>
             <Navbar />

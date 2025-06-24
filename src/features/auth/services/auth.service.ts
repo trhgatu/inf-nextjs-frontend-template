@@ -1,5 +1,5 @@
 // src/features/auth/services/authService.ts
-import axiosInstance from '@/lib/axios'
+import axiosInstance from '@/lib/axios';
 import type { LoginFormValues } from '../validators/login-schema';
 
 export const login = async (data: LoginFormValues) => {

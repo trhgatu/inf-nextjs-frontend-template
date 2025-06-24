@@ -1,10 +1,10 @@
 // src/components/shared/Navbar.tsx
-"use client";
+'use client';
 
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/config/site";
-import { useAuth } from "@/features/auth/hooks/use-auth";
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { siteConfig } from '@/config/site';
+import { useAuth } from '@/features/auth/hooks/use-auth';
 
 export const Navbar = () => {
   const { user, logout } = useAuth();
@@ -31,7 +31,6 @@ export const Navbar = () => {
           >
             Đăng xuất
           </button>
-
         </nav>
       </div>
     </header>

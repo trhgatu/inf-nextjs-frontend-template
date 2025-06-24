@@ -4,7 +4,10 @@ import type { IUser } from '@/types';
 import type { AxiosError } from 'axios';
 import type { LoginFormValues } from '@/features/auth/validators/login-schema';
 // Update the import path below to the correct relative path if needed
-import { login as loginApi, getMe } from '../features/auth/services/auth.service';
+import {
+  login as loginApi,
+  getMe,
+} from '../features/auth/services/auth.service';
 
 interface AuthState {
   isAuthenticated: boolean;
@@ -46,7 +49,9 @@ export const restoreAuth = createAsyncThunk<
     return { token, user };
   } catch (error) {
     const err = error as AxiosError<ErrorResponse>;
-    return rejectWithValue(err.response?.data?.message || 'Failed to restore auth');
+    return rejectWithValue(
+      err.response?.data?.message || 'Failed to restore auth'
+    );
   }
 });
 
