@@ -1,6 +1,5 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -10,8 +9,7 @@ import { toast } from 'sonner';
 import { useAuth } from '../hooks/use-auth';
 
 export const LoginForm = () => {
-  const router = useRouter();
-  const { login, isAuthenticated, loading, error } = useAuth();
+  const { login, loading, error } = useAuth();
 
   const {
     register,
@@ -24,12 +22,6 @@ export const LoginForm = () => {
   const onSubmit = async (data: LoginFormValues) => {
     await login(data);
   };
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      router.push('/');
-    }
-  }, [isAuthenticated, router]);
 
   useEffect(() => {
     if (error) {
