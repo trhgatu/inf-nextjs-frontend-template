@@ -6,6 +6,7 @@ import type { LoginFormValues } from '@/features/auth/validators/login-schema';
 // Update the import path below to the correct relative path if needed
 import {
   login as loginApi,
+  logout as logoutApi,
   getMe,
 } from '../features/auth/services/auth.service';
 
@@ -68,6 +69,20 @@ export const login = createAsyncThunk<
     return rejectWithValue(err.response?.data?.message || 'Login failed');
   }
 });
+
+export const logoutUser = createAsyncThunk<void, void, { rejectValue: string }>(
+  'auth/logoutUser',
+  async (_, { dispatch, rejectWithValue }) => {
+    try {
+      await logoutApi();
+    } catch (error) {
+      const err = error as AxiosError<ErrorResponse>;
+      return rejectWithValue(err.response?.data?.message || 'Logout failed');
+    } finally {
+      dispatch(logout());
+    }
+  }
+);
 
 const authSlice = createSlice({
   name: 'auth',

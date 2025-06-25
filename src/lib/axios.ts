@@ -42,8 +42,6 @@ axiosInstance.interceptors.response.use(
   (response) => response,
   async (error) => {
     const originalRequest = error.config;
-
-    // Nếu bị 401 và chưa từng retry
     if (error.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
 
