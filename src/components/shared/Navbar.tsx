@@ -5,9 +5,12 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/config/site';
 import { useAuth } from '@/features/auth/hooks/use-auth';
+import { logoutUser } from '@/store/auth-slice';
+import { useAppDispatch } from '@/store/hook';
 
 export const Navbar = () => {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
+  const dispatch = useAppDispatch();
 
   return (
     <header className="border-b bg-white sticky top-0 z-50">
@@ -32,7 +35,7 @@ export const Navbar = () => {
                 Xin chào, {user.fullName}
               </span>
               <button
-                onClick={logout}
+                onClick={() => dispatch(logoutUser())}
                 className="text-red-500 text-sm hover:underline"
               >
                 Đăng xuất

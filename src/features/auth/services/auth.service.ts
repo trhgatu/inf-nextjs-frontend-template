@@ -13,5 +13,5 @@ export const getMe = async () => {
 };
 
 export const logout = () => {
-  localStorage.removeItem('token');
+  return axiosInstance.post('/auth/logout');
 };
