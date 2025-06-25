@@ -16,21 +16,29 @@ export const Navbar = () => {
           {siteConfig.name}
         </Link>
         <nav className="flex items-center gap-4">
-          <Button asChild variant="ghost" size="sm">
-            <Link href="/login">Đăng nhập</Link>
-          </Button>
-          <Button asChild size="sm">
-            <Link href="/register">Đăng ký</Link>
-          </Button>
-          <span className="text-sm text-gray-700">
-            Xin chào, {user?.fullName}
-          </span>
-          <button
-            onClick={logout}
-            className="text-red-500 text-sm hover:underline"
-          >
-            Đăng xuất
-          </button>
+          {!user && (
+            <>
+              <Button asChild variant="ghost" size="sm">
+                <Link href="/login">Đăng nhập</Link>
+              </Button>
+              <Button asChild size="sm">
+                <Link href="/register">Đăng ký</Link>
+              </Button>
+            </>
+          )}
+          {user && (
+            <>
+              <span className="text-sm text-gray-700">
+                Xin chào, {user.fullName}
+              </span>
+              <button
+                onClick={logout}
+                className="text-red-500 text-sm hover:underline"
+              >
+                Đăng xuất
+              </button>
+            </>
+          )}
         </nav>
       </div>
     </header>

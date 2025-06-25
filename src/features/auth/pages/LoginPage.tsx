@@ -8,7 +8,7 @@ import { LoginForm } from '../components/LoginForm';
 
 export const LoginPage = () => {
   const { isAuthenticated, isInitialized } = useAuth();
-   const router = useRouter();
+  const router = useRouter();
 
   useEffect(() => {
     if (isInitialized && isAuthenticated) {
