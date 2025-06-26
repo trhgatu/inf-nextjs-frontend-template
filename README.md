@@ -351,7 +351,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 💬 Support
 
-- 📧 **Email**: [trhgatu@example.com](mailto:trhgatu@example.com)
+- 📧 **Email**: [trananhtu1112003@gmail.com](mailto:trananhtu1112003@gmail.com)
 - 🐛 **Issues**: [GitHub Issues](https://github.com/trhgatu/trhgatu-inf-nextjs-frontend-template/issues)
 - 💬 **Discussions**: [GitHub Discussions](https://github.com/trhgatu/trhgatu-inf-nextjs-frontend-template/discussions)
 
